@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testidp.R
 import com.example.testidp.enums.MainItemType
+import com.example.testidp.utils.normalize
 
 class Adapter(private val onItemClickListener: (MainItemType) -> Unit) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -32,9 +33,7 @@ class Adapter(private val onItemClickListener: (MainItemType) -> Unit) :
         private var textView: TextView? = view.findViewById(R.id.textView)
 
         fun bind(type: MainItemType) {
-            val name = type.name.lowercase()
-            textView?.text =
-                name.lowercase().replaceFirst(name.first(), name.first().uppercaseChar())
+            textView?.text = type.name.normalize()
             itemView.setOnClickListener {
                 onItemClickListener.invoke(type)
             }

@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_arrow_back_on_primary.xml" value="0.3574074074074074" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_container.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_main.xml" value="0.3148148148148148" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_maps.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/item_main.xml" value="0.3148148148148148" />
       </map>
     </option>
