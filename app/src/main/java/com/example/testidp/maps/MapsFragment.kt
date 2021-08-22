@@ -11,6 +11,7 @@ import com.example.testidp.R
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.MapStyleOptions
 
 class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
 
@@ -38,6 +39,8 @@ class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         this.map = map
+        val options = MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.dark_map_style)
+        map.setMapStyle(options)
         checkPermissions()
         requestPermissionLauncher.launch(
             arrayOf(
