@@ -2,6 +2,7 @@ package com.example.testidp.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testidp.R
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun processItemClick(itemType: MainItemType) {
         val intent = ContainerActivity.getIntent(this, itemType)
+//        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, )
         startActivity(intent)
     }
 }

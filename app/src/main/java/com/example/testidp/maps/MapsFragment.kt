@@ -15,6 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment
 class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
 
     companion object {
+        private const val GRAY_MAP_ID = "5501de6188230cb1"
         fun newInstance() = MapsFragment()
     }
 
