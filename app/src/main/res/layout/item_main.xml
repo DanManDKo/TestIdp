@@ -9,5 +9,6 @@
     android:padding="16dp"
     android:textColor="?colorSecondary"
     android:textSize="32sp"
+    android:transitionName="mainItem"
     tools:text="Maps" />
 
