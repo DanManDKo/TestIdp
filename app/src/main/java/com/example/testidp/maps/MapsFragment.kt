@@ -1,17 +1,16 @@
 package com.example.testidp.maps
 
-import android.Manifest
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.testidp.R
+import com.example.testidp.utils.click
 import com.example.testidp.utils.toPx
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -27,16 +26,19 @@ class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
 
         private const val MARKER_BITMAP_SIZE_IN_DP = 80
 
+        private const val PICK_CONTENT_TYPE = "image/*"
+
         fun newInstance() = MapsFragment()
     }
 
     private var map: GoogleMap? = null
-    private var requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-        }
-
     private var marker: Marker? = null
     private var markerClickCounter: Int = 0
+    private var btnPickImage: Button? = null
+
+    private val pickImageAction = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        onImagePicked(it)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,19 +55,19 @@ class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
         this.map = map
         val options = MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.dark_map_style)
         map.setMapStyle(options)
-        requestPermissionLauncher.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            )
-        )
         showMarker(LAT, LNG)
-
-
     }
 
     private fun setupUi(view: View) {
         setupMap()
+        bindUi(view)
+    }
+
+    private fun bindUi(view: View) {
+        btnPickImage = view.findViewById(R.id.btnPickImage)
+        btnPickImage?.click {
+            onPickImageClicked()
+        }
     }
 
     private fun setupMap() {
@@ -145,5 +147,15 @@ class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
         return bitmap
     }
 
+    private fun onPickImageClicked() {
+        pickImageAction.launch(PICK_CONTENT_TYPE)
+    }
 
+    private fun onImagePicked(uri: Uri) {
+        val stream = requireContext().contentResolver.openInputStream(uri)
+        stream.use {
+            val bitmap = BitmapFactory.decodeStream(it)
+            marker?.setIcon(BitmapDescriptorFactory.fromBitmap(bitmap))
+        }
+    }
 }
