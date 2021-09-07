@@ -13,7 +13,8 @@ class Adapter(private val onItemClickListener: (MainItemType) -> Unit) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     private val items = listOf(
-        MainItemType.MAP
+        MainItemType.MAP,
+        MainItemType.DELEGATE
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

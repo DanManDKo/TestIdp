@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun processItemClick(itemType: MainItemType) {
         val intent = ContainerActivity.getIntent(this, itemType)
-//        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, )
         startActivity(intent)
     }
 }

@@ -8,7 +8,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentContainerView
 import com.example.testidp.R
 import com.example.testidp.enums.MainItemType
-import com.example.testidp.maps.MapsFragment
+import com.example.testidp.features.delegate.CustomDelegateFragment
+import com.example.testidp.features.maps.MapsFragment
 import com.example.testidp.utils.normalize
 
 class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
@@ -50,6 +51,11 @@ class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
             MainItemType.MAP -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, MapsFragment.newInstance())
+                    .commit()
+            }
+            MainItemType.DELEGATE -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, CustomDelegateFragment.newInstance())
                     .commit()
             }
         }

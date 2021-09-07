@@ -1,4 +1,4 @@
-package com.example.testidp.maps
+package com.example.testidp.features.maps
 
 import android.graphics.*
 import android.net.Uri
@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.example.testidp.R
+import com.example.testidp.base.BaseFragment
 import com.example.testidp.utils.click
 import com.example.testidp.utils.toPx
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -18,7 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 
-class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
+class MapsFragment private constructor() : BaseFragment(R.layout.fragment_maps), OnMapReadyCallback {
 
     companion object {
         private const val LAT = 48.47060751061337
@@ -39,12 +40,6 @@ class MapsFragment private constructor() : Fragment(), OnMapReadyCallback {
     private val pickImageAction = registerForActivityResult(ActivityResultContracts.GetContent()) {
         onImagePicked(it)
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_maps, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
