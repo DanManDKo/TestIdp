@@ -10,6 +10,7 @@ import com.example.testidp.R
 import com.example.testidp.enums.MainItemType
 import com.example.testidp.features.delegate.CustomDelegateFragment
 import com.example.testidp.features.maps.MapsFragment
+import com.example.testidp.features.recycler.RecyclerFragment
 import com.example.testidp.utils.normalize
 
 class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
@@ -56,6 +57,11 @@ class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
             MainItemType.DELEGATE -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, CustomDelegateFragment.newInstance())
+                    .commit()
+            }
+            MainItemType.RECYCLER -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, RecyclerFragment.newInstance())
                     .commit()
             }
         }

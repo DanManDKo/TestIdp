@@ -1,26 +1,21 @@
 package com.example.testidp.main
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testidp.R
 import com.example.testidp.enums.MainItemType
+import com.example.testidp.utils.inflate
 import com.example.testidp.utils.normalize
 
-class Adapter(private val onItemClickListener: (MainItemType) -> Unit) :
-    RecyclerView.Adapter<Adapter.ViewHolder>() {
+class MainAdapter(private val onItemClickListener: (MainItemType) -> Unit) :
+    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-    private val items = listOf(
-        MainItemType.MAP,
-        MainItemType.DELEGATE
-    )
+    private val items = MainItemType.values()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_main, parent, false)
-        )
+        return ViewHolder(parent.inflate(R.layout.item_main))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
