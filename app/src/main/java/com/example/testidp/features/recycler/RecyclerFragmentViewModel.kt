@@ -12,10 +12,6 @@ class RecyclerFragmentViewModel : BaseViewModel() {
         itemsLD.value = getData()
     }
 
-    fun onItemChangedPosition(oldPosition: Int, newPosition: Int){
-
-    }
-
     private fun getData(): List<DragAndDropItem> {
         return listOf(
             DragAndDropItem("Item 1"),

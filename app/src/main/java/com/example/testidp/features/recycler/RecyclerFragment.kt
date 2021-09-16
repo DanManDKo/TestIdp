@@ -23,6 +23,7 @@ class RecyclerFragment private constructor() : BaseMVVMFragment<RecyclerFragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUi(view)
+        observe()
     }
 
     private fun setupUi(view: View) {
@@ -30,5 +31,11 @@ class RecyclerFragment private constructor() : BaseMVVMFragment<RecyclerFragment
         dragAndDropAdapter = DragAndDropAdapter()
         recycler?.layoutManager = LinearLayoutManager(context)
         recycler?.adapter = dragAndDropAdapter
+    }
+
+    private fun observe() {
+        viewModel.itemsLD.observe {
+            dragAndDropAdapter?.setItems(it)
+        }
     }
 }

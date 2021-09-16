@@ -12,16 +12,7 @@ import java.util.*
 class DragAndDropAdapter : RecyclerView.Adapter<DragAndDropAdapter.ViewHolder>(),
     DragAndDropHelper.OnItemMoveListener {
 
-    private val items = mutableListOf(
-        DragAndDropItem("Item 1"),
-        DragAndDropItem("Item 2"),
-        DragAndDropItem("Item 3"),
-        DragAndDropItem("Item 4"),
-        DragAndDropItem("Item 5"),
-        DragAndDropItem("Item 6"),
-        DragAndDropItem("Item 7"),
-        DragAndDropItem("Item 8"),
-    )
+    private val items = LinkedList<DragAndDropItem>()
 
     private val dragAndDropHelper = DragAndDropHelper(this)
     private val touchHelper = ItemTouchHelper(dragAndDropHelper)
@@ -57,6 +48,11 @@ class DragAndDropAdapter : RecyclerView.Adapter<DragAndDropAdapter.ViewHolder>()
     override fun onItemSwiped(position: Int) {
         items.removeAt(position)
         notifyItemRemoved(position)
+    }
+
+    fun setItems(items: List<DragAndDropItem>) {
+        this.items.clear()
+        this.items.addAll(items)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
