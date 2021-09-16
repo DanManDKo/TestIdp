@@ -12,7 +12,7 @@ import java.util.*
 class DragAndDropAdapter : RecyclerView.Adapter<DragAndDropAdapter.ViewHolder>(),
     DragAndDropHelper.OnItemMoveListener {
 
-    private val items = listOf(
+    private val items = mutableListOf(
         DragAndDropItem("Item 1"),
         DragAndDropItem("Item 2"),
         DragAndDropItem("Item 3"),
@@ -52,6 +52,11 @@ class DragAndDropAdapter : RecyclerView.Adapter<DragAndDropAdapter.ViewHolder>()
             }
         }
         notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onItemSwiped(position: Int) {
+        items.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

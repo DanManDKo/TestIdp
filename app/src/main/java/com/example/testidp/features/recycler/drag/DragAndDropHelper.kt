@@ -7,15 +7,16 @@ class DragAndDropHelper(private val listener: OnItemMoveListener) : ItemTouchHel
 
     override fun isLongPressDragEnabled(): Boolean = true
 
-    override fun isItemViewSwipeEnabled(): Boolean = false
+    override fun isItemViewSwipeEnabled(): Boolean = true
 
     override fun getMovementFlags(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder
     ): Int {
-        return makeFlag(
-            ItemTouchHelper.ACTION_STATE_DRAG,
-            ItemTouchHelper.DOWN or ItemTouchHelper.UP
+
+        return makeMovementFlags(
+            ItemTouchHelper.DOWN or ItemTouchHelper.UP,
+              ItemTouchHelper.START or ItemTouchHelper.END
         )
     }
 
@@ -28,10 +29,13 @@ class DragAndDropHelper(private val listener: OnItemMoveListener) : ItemTouchHel
         return true
     }
 
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {}
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+        listener.onItemSwiped(viewHolder.adapterPosition)
+    }
 
 
     interface OnItemMoveListener {
         fun onItemMoved(fromPosition: Int, toPosition: Int)
+        fun onItemSwiped(position: Int)
     }
 }
