@@ -5,10 +5,13 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testidp.R
-import com.example.testidp.base.BaseFragment
+import com.example.testidp.base.BaseMVVMFragment
 import com.example.testidp.features.recycler.drag.DragAndDropAdapter
 
-class RecyclerFragment private constructor() : BaseFragment(R.layout.fragment_recycler) {
+class RecyclerFragment private constructor() : BaseMVVMFragment<RecyclerFragmentViewModel>(
+    R.layout.fragment_recycler,
+    RecyclerFragmentViewModel::class
+) {
 
     companion object {
         fun newInstance() = RecyclerFragment()
