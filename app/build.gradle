@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
 }
 
+apply from: "jacoco.gradle"
+
 android {
     compileSdk 30
 
@@ -41,6 +43,7 @@ android {
         debug {
             minifyEnabled false
             debuggable = true
+            testCoverageEnabled true
         }
 
         qa {
@@ -56,6 +59,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
