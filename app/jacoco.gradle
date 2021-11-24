@@ -23,15 +23,14 @@ tasks.withType(Test) {
 }
 
 project.afterEvaluate {
-
     (android.hasProperty('applicationVariants')
             ? android.'applicationVariants'
             : android.'libraryVariants')
             .all { variant ->
+
                 def variantName = variant.name
                 def unitTestTask = "test${variantName.capitalize()}UnitTest"
-                def androidTestCoverageTask = "create${variantName.capitalize()}CoverageReport"
-
+                def androidTestCoverageTask = "create${variantName.capitalize()}UnitTestCoverageReport"
                 tasks.create(name: "${unitTestTask}Coverage", type: JacocoReport, dependsOn: [
                         "$unitTestTask",
                         "$androidTestCoverageTask"
