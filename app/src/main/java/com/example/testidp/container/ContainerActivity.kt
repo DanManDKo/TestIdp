@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentContainerView
 import com.example.testidp.R
 import com.example.testidp.enums.MainItemType
 import com.example.testidp.features.delegate.CustomDelegateFragment
+import com.example.testidp.features.mappers.MappersFragment
 import com.example.testidp.features.maps.MapsFragment
 import com.example.testidp.features.recycler.RecyclerFragment
 import com.example.testidp.utils.normalize
@@ -62,6 +63,11 @@ class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
             MainItemType.RECYCLER -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, RecyclerFragment.newInstance())
+                    .commit()
+            }
+            MainItemType.MAPPERS -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, MappersFragment.newInstance())
                     .commit()
             }
         }
