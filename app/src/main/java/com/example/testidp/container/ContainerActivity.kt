@@ -3,18 +3,19 @@ package com.example.testidp.container
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentContainerView
 import com.example.testidp.R
+import com.example.testidp.base.BaseActivity
 import com.example.testidp.enums.MainItemType
 import com.example.testidp.features.delegate.CustomDelegateFragment
 import com.example.testidp.features.mappers.MappersFragment
 import com.example.testidp.features.maps.MapsFragment
 import com.example.testidp.features.recycler.RecyclerFragment
+import com.example.testidp.features.workmanager.WorkManagerFragment
 import com.example.testidp.utils.normalize
 
-class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
+class ContainerActivity : BaseActivity(R.layout.activity_container) {
     companion object {
         private const val EXTRA_KEY_SCREEN = "EXTRA_KEY_SCREEN"
 
@@ -49,27 +50,13 @@ class ContainerActivity : AppCompatActivity(R.layout.activity_container) {
     }
 
     private fun showSelectedScreen(screen: MainItemType) {
-        when (screen) {
-            MainItemType.MAP -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MapsFragment.newInstance())
-                    .commit()
-            }
-            MainItemType.DELEGATE -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, CustomDelegateFragment.newInstance())
-                    .commit()
-            }
-            MainItemType.RECYCLER -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, RecyclerFragment.newInstance())
-                    .commit()
-            }
-            MainItemType.MAPPERS -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MappersFragment.newInstance())
-                    .commit()
-            }
+        val fragment = when (screen) {
+            MainItemType.MAP -> MapsFragment.newInstance()
+            MainItemType.DELEGATE -> CustomDelegateFragment.newInstance()
+            MainItemType.RECYCLER -> RecyclerFragment.newInstance()
+            MainItemType.MAPPERS -> MappersFragment.newInstance()
+            MainItemType.WORK_MANAGER -> WorkManagerFragment.newInstance()
         }
+        setFragment(fragment)
     }
 }
