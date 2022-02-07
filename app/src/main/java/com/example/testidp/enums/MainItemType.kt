@@ -5,5 +5,6 @@ enum class MainItemType {
     DELEGATE,
     RECYCLER,
     MAPPERS,
-    WORK_MANAGER
+    WORK_MANAGER,
+    NOTIFICATIONS
 }

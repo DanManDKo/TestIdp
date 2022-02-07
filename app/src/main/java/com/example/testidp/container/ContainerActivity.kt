@@ -11,6 +11,7 @@ import com.example.testidp.enums.MainItemType
 import com.example.testidp.features.delegate.CustomDelegateFragment
 import com.example.testidp.features.mappers.MappersFragment
 import com.example.testidp.features.maps.MapsFragment
+import com.example.testidp.features.notifications.NotificationFragment
 import com.example.testidp.features.recycler.RecyclerFragment
 import com.example.testidp.features.workmanager.WorkManagerFragment
 import com.example.testidp.utils.normalize
@@ -56,7 +57,9 @@ class ContainerActivity : BaseActivity(R.layout.activity_container) {
             MainItemType.RECYCLER -> RecyclerFragment.newInstance()
             MainItemType.MAPPERS -> MappersFragment.newInstance()
             MainItemType.WORK_MANAGER -> WorkManagerFragment.newInstance()
+            MainItemType.NOTIFICATIONS -> NotificationFragment.newInstance()
         }
         setFragment(fragment)
     }
+
 }
