@@ -13,6 +13,7 @@ class App : Application() {
 
     companion object {
         const val CHANNEL_ID_TEXT = "ChannelText"
+        const val CHANNEL_ID_LOADING = "Loading"
     }
 
     override fun onCreate() {
@@ -25,20 +26,34 @@ class App : Application() {
     }
 
     private fun createNotificationsChannels() {
-        val channels = listOfNotNull(createTextNotificationChannel())
+        val channels = listOfNotNull(
+            createNotificationChannel(
+                name = "Text Notifications",
+                description = "This channel provides the simple text notifications",
+                channelId = CHANNEL_ID_TEXT
+            ),
+            createNotificationChannel(
+                name = "Loading Notifications",
+                description = "This channel provides loading status notifications",
+                channelId = CHANNEL_ID_LOADING
+            )
+//                .apply { this?.setSound(null, null) }
+        )
         channels.forEach { channel ->
             val manager = getNotificationsManager()
             manager.createNotificationChannel(channel)
         }
     }
 
-    private fun createTextNotificationChannel(): NotificationChannel? {
+    private fun createNotificationChannel(
+        name: String,
+        description: String,
+        channelId: String
+    ): NotificationChannel? {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Text Notifications"
-            val description = "This chennel provides the simple text notifications"
             val importance = NotificationManager.IMPORTANCE_HIGH
             NotificationChannel(
-                CHANNEL_ID_TEXT,
+                channelId,
                 name,
                 importance
             ).apply {

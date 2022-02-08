@@ -33,6 +33,13 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAViwtOQzJxZZCFE6cQZcAq5cIaayOudoM" />
+
+        <receiver
+            android:name=".features.notifications.NotificationsActionBroadcastReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".features.notifications.NotificationReplayBroadcastReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>
