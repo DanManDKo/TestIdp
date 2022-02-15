@@ -14,6 +14,7 @@ class App : Application() {
     companion object {
         const val CHANNEL_ID_TEXT = "ChannelText"
         const val CHANNEL_ID_LOADING = "Loading"
+        const val CHANNEL_ID_STYLED = "Styled"
     }
 
     override fun onCreate() {
@@ -36,8 +37,12 @@ class App : Application() {
                 name = "Loading Notifications",
                 description = "This channel provides loading status notifications",
                 channelId = CHANNEL_ID_LOADING
+            ),
+            createNotificationChannel(
+                name = "Styled Notifications",
+                description = "This is the channel for styled notifications",
+                channelId = CHANNEL_ID_STYLED
             )
-//                .apply { this?.setSound(null, null) }
         )
         channels.forEach { channel ->
             val manager = getNotificationsManager()

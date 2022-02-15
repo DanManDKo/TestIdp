@@ -3,12 +3,15 @@ package com.example.testidp.features.notifications
 import android.app.Notification
 import android.app.PendingIntent
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.Person
 import androidx.core.app.RemoteInput
+import androidx.core.graphics.drawable.IconCompat
 import com.example.testidp.App
 import com.example.testidp.R
 import com.example.testidp.base.BaseFragment
@@ -30,6 +33,10 @@ class NotificationFragment : BaseFragment(R.layout.fragment_notifications) {
     private var btnNotificationAction: Button? = null
     private var btnNotificationReplay: Button? = null
     private var btnNotificationProgress: Button? = null
+    private var btnNotificationMessaging: Button? = null
+    private var btnNotificationBigText: Button? = null
+    private var btnNotificationInbox: Button? = null
+    private var btnNotificationBigPicture: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +48,10 @@ class NotificationFragment : BaseFragment(R.layout.fragment_notifications) {
         btnNotificationAction = view.findViewById(R.id.btnNotificationAction)
         btnNotificationReplay = view.findViewById(R.id.btnNotificationReplay)
         btnNotificationProgress = view.findViewById(R.id.btnNotificationProgress)
+        btnNotificationMessaging = view.findViewById(R.id.btnNotificationMessaging)
+        btnNotificationBigText = view.findViewById(R.id.btnNotificationBigText)
+        btnNotificationInbox = view.findViewById(R.id.btnNotificationInbox)
+        btnNotificationBigPicture = view.findViewById(R.id.btnNotificationBigPicture)
 
         btnText?.setOnClickListener {
             showSimpleTextNotification()
@@ -56,6 +67,22 @@ class NotificationFragment : BaseFragment(R.layout.fragment_notifications) {
 
         btnNotificationProgress?.setOnClickListener {
             showProgressNotification()
+        }
+
+        btnNotificationMessaging?.setOnClickListener {
+            showMessagingStyledNotification()
+        }
+
+        btnNotificationBigText?.setOnClickListener {
+            showBitText()
+        }
+
+        btnNotificationInbox?.setOnClickListener {
+            showInboxNotification()
+        }
+
+        btnNotificationBigPicture?.setOnClickListener {
+            showBigPictureNotification()
         }
     }
 
@@ -171,6 +198,106 @@ class NotificationFragment : BaseFragment(R.layout.fragment_notifications) {
             }
         }
         thread.start()
+    }
+
+    private fun showMessagingStyledNotification() {
+        val personMe = Person.Builder()
+            .setBot(false)
+            .setIcon(
+                IconCompat.createWithResource(
+                    requireContext(),
+                    R.drawable.ic_person_24
+                )
+            )
+            .setName("Me")
+            .build()
+
+        val personTwo = Person.Builder()
+            .setBot(false)
+            .setIcon(
+                IconCompat.createWithResource(
+                    requireContext(),
+                    R.drawable.ic_person_plus_24
+                )
+            )
+            .setName("Person Two")
+            .build()
+        val personThree = Person.Builder()
+            .setBot(false)
+            .setIcon(
+                IconCompat.createWithResource(
+                    requireContext(),
+                    R.drawable.ic_person_minus_24
+                )
+            )
+            .setName("Person Three")
+            .build()
+        val notification = NotificationCompat.Builder(requireContext(), App.CHANNEL_ID_STYLED)
+            .setSmallIcon(R.drawable.ic_smoking_24)
+            .setStyle(
+                NotificationCompat.MessagingStyle(personMe)
+                    .setConversationTitle("I hate you ALL111")
+                    .addMessage("I hate you!", 123L, personMe)
+                    .addMessage("I hate you tooooo!!!", 124L, personTwo)
+                    .addMessage("I hate you both, jerk asses", 125L, personThree)
+            ).build()
+        showNotification(notification)
+    }
+
+    private fun showBitText() {
+        val notification = NotificationCompat.Builder(requireContext(), App.CHANNEL_ID_STYLED)
+            .setSmallIcon(R.drawable.ic_smoking_24)
+            .setContentTitle("Big text")
+            .setContentText("Much longer text that cannot fit one line...")
+            .setStyle(
+                NotificationCompat.BigTextStyle()
+                    .bigText(
+                        "Much longer text that cannot fit one line... 11111111111111111111111" +
+                                "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+                    )
+            )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .build()
+        showNotification(notification)
+    }
+
+    private fun showInboxNotification() {
+        val notification = NotificationCompat.Builder(requireContext(), App.CHANNEL_ID_STYLED)
+            .setSmallIcon(R.drawable.ic_smoking_24)
+            .setContentTitle("Inbox styled")
+            .setStyle(
+                NotificationCompat.InboxStyle()
+                    .addLine("The line 1")
+                    .addLine("The line 2")
+                    .addLine("The line 3")
+                    .addLine("The line 4")
+                    .addLine("The line 5")
+                    .addLine("The line 6")
+                    .addLine("The line 7")
+                    .addLine("The line 8")
+                    .addLine("The line 9")
+                    .addLine("The line 10")
+                    .setBigContentTitle("Big content title")
+                    .setSummaryText("Summary text")
+            )
+            .build()
+        showNotification(notification)
+    }
+
+    private fun showBigPictureNotification() {
+        val bigIcon = BitmapFactory.decodeResource(resources, R.drawable.ic_run_circle_60)
+        val bigPicture = BitmapFactory.decodeResource(resources, R.drawable.retr)
+
+        val notification = NotificationCompat.Builder(requireContext(), App.CHANNEL_ID_STYLED)
+            .setSmallIcon(R.drawable.ic_smoking_24)
+            .setLargeIcon(bigIcon)
+            .setContentTitle("Big picture")
+            .setStyle(
+                NotificationCompat.BigPictureStyle()
+                    .bigPicture(bigPicture)
+            )
+            .build()
+        showNotification(notification)
     }
 
     private fun createPendingIntent(): PendingIntent {
