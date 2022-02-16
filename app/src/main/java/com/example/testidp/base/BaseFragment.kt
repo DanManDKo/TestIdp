@@ -29,6 +29,7 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment() {
             activity?.let {
                 it.supportFragmentManager.beginTransaction()
                     .replace(R.id.container, fragment)
+                    .addToBackStack(null)
                     .commit()
             }
         }
