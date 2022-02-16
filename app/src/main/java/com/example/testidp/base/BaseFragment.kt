@@ -8,6 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.example.testidp.R
+import com.example.testidp.container.ContainerActivity
 
 open class BaseFragment(@LayoutRes val layout: Int) : Fragment() {
 
@@ -20,5 +22,15 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment() {
 
     inline fun <reified T> LiveData<T>.observe(observer: Observer<T>) {
         observe(this@BaseFragment.viewLifecycleOwner, observer)
+    }
+
+    fun setFragment(fragment: Fragment) {
+        if (activity is ContainerActivity?) {
+            activity?.let {
+                it.supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit()
+            }
+        }
     }
 }

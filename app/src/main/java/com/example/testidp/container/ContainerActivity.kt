@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentContainerView
 import com.example.testidp.R
 import com.example.testidp.base.BaseActivity
 import com.example.testidp.enums.MainItemType
+import com.example.testidp.features.animations.AnimationsFragment
 import com.example.testidp.features.delegate.CustomDelegateFragment
 import com.example.testidp.features.mappers.MappersFragment
 import com.example.testidp.features.maps.MapsFragment
@@ -58,6 +59,7 @@ class ContainerActivity : BaseActivity(R.layout.activity_container) {
             MainItemType.MAPPERS -> MappersFragment.newInstance()
             MainItemType.WORK_MANAGER -> WorkManagerFragment.newInstance()
             MainItemType.NOTIFICATIONS -> NotificationFragment.newInstance()
+            MainItemType.ANIMATIONS -> AnimationsFragment.newInstance()
         }
         setFragment(fragment)
     }

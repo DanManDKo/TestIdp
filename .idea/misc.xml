@@ -7,11 +7,14 @@
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_drag.xml" value="0.3880208333333333" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_container.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_main.xml" value="0.3148148148148148" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_animations.xml" value="0.24974358974358973" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_custon_delegate.xml" value="0.371875" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_maps.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_notifications.xml" value="0.12129629629629629" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_recycler.xml" value="0.371875" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_recycler_animations.xml" value="0.24974358974358973" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_work_manager.xml" value="0.1" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/item_animated.xml" value="0.24974358974358973" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/item_main.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/item_recycler_drag.xml" value="0.371875" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2245" />

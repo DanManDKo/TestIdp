@@ -6,5 +6,6 @@ enum class MainItemType {
     RECYCLER,
     MAPPERS,
     WORK_MANAGER,
-    NOTIFICATIONS
+    NOTIFICATIONS,
+    ANIMATIONS
 }
