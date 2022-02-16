@@ -4,13 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_arrow_back_on_primary.xml" value="0.3574074074074074" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_arrow_down_24.xml" value="0.2175" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_cancel_24.xml" value="0.2205" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/drawable/ic_drag.xml" value="0.3880208333333333" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_container.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/activity_main.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_animations.xml" value="0.24974358974358973" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_custon_delegate.xml" value="0.371875" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_general_animations.xml" value="0.20625" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_maps.xml" value="0.3148148148148148" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_notifications.xml" value="0.12129629629629629" />
+        <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_property_animation.xml" value="0.21041666666666667" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_recycler.xml" value="0.371875" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_recycler_animations.xml" value="0.24974358974358973" />
         <entry key="..\:/androidTests/TestIDP/app/src/main/res/layout/fragment_work_manager.xml" value="0.1" />
