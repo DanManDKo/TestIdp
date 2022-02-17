@@ -13,11 +13,19 @@
         android:text="Recycler animations" />
 
     <Button
-        android:id="@+id/btnPropertyAnimations"
+        android:id="@+id/btnObjectAnimations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="32dp"
         android:text="Property Animation" />
+
+    <Button
+        android:id="@+id/btnPathAnimations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Path Animation" />
 
 </LinearLayout>

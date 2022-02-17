@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.example.testidp.R
 import com.example.testidp.base.BaseFragment
 
-abstract class AnimationControlsFragment : BaseFragment(R.layout.fragment_animations_control) {
+abstract class BaseAnimationControlsFragment : BaseFragment(R.layout.fragment_base_animations_control) {
     companion object {
 
         const val MOVEMENT_STEP = 100f

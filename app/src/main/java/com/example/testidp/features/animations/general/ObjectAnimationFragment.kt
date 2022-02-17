@@ -4,7 +4,7 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.view.animation.DecelerateInterpolator
 
-class ObjectAnimationFragment : AnimationControlsFragment() {
+class ObjectAnimationFragment : BaseAnimationControlsFragment() {
     companion object {
 
         fun newInstance() = ObjectAnimationFragment()

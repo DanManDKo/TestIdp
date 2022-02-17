@@ -6,6 +6,7 @@ import android.widget.Button
 import com.example.testidp.R
 import com.example.testidp.base.BaseFragment
 import com.example.testidp.features.animations.general.ObjectAnimationFragment
+import com.example.testidp.features.animations.general.PathAnimationFragment
 import com.example.testidp.features.animations.recycleranimations.RecyclerAnimationsFragment
 
 class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
@@ -15,7 +16,8 @@ class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
     }
 
     private var btnRecyclerAnimations: Button? = null
-    private var btnPropertyAnimations: Button? = null
+    private var btnObjectAnimations: Button? = null
+    private var btnPathAnimations: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,14 +26,19 @@ class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
 
     private fun initButtons(view: View) {
         btnRecyclerAnimations = view.findViewById(R.id.btnRecyclerAnimations)
-        btnPropertyAnimations = view.findViewById(R.id.btnPropertyAnimations)
+        btnObjectAnimations = view.findViewById(R.id.btnObjectAnimations)
+        btnPathAnimations = view.findViewById(R.id.btnPathAnimations)
 
         btnRecyclerAnimations?.setOnClickListener {
             setFragment(RecyclerAnimationsFragment.newInstance())
         }
 
-        btnPropertyAnimations?.setOnClickListener {
+        btnObjectAnimations?.setOnClickListener {
             setFragment(ObjectAnimationFragment.newInstance())
+        }
+
+        btnPathAnimations?.setOnClickListener {
+            setFragment(PathAnimationFragment.newInstance())
         }
     }
 }
