@@ -7,6 +7,7 @@ import com.example.testidp.R
 import com.example.testidp.base.BaseFragment
 import com.example.testidp.features.animations.general.ObjectAnimationFragment
 import com.example.testidp.features.animations.general.PathAnimationFragment
+import com.example.testidp.features.animations.general.VectorDrawableAnimationFragment
 import com.example.testidp.features.animations.recycleranimations.RecyclerAnimationsFragment
 
 class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
@@ -18,6 +19,7 @@ class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
     private var btnRecyclerAnimations: Button? = null
     private var btnObjectAnimations: Button? = null
     private var btnPathAnimations: Button? = null
+    private var btnAnimatedVector: Button? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,6 +30,7 @@ class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
         btnRecyclerAnimations = view.findViewById(R.id.btnRecyclerAnimations)
         btnObjectAnimations = view.findViewById(R.id.btnObjectAnimations)
         btnPathAnimations = view.findViewById(R.id.btnPathAnimations)
+        btnAnimatedVector = view.findViewById(R.id.btnAnimatedVector)
 
         btnRecyclerAnimations?.setOnClickListener {
             setFragment(RecyclerAnimationsFragment.newInstance())
@@ -39,6 +42,10 @@ class AnimationsFragment : BaseFragment(R.layout.fragment_animations) {
 
         btnPathAnimations?.setOnClickListener {
             setFragment(PathAnimationFragment.newInstance())
+        }
+
+        btnAnimatedVector?.setOnClickListener {
+            setFragment(VectorDrawableAnimationFragment.newInstance())
         }
     }
 }
