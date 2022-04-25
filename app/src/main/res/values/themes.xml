@@ -14,4 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:windowContentTransitions">true</item>
     </style>
+
+    <style name="Theme.CustomSplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#ff00AE</item>
+        <item name="postSplashScreenTheme">@style/Theme.TestIDP</item>
+    </style>
 </resources>

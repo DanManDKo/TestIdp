@@ -36,4 +36,11 @@
         android:layout_marginTop="32dp"
         android:text="Vector Animation" />
 
+    <Button
+        android:id="@+id/btnTransitionsAnimations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Transition Animation" />
 </LinearLayout>

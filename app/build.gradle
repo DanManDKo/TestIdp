@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.testidp"
-        minSdk 31
+        minSdk 30
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -67,6 +67,7 @@ dependencies {
     implementation "io.insert-koin:koin-core:3.1.2"
     implementation "io.insert-koin:koin-android:3.1.2"
     implementation "androidx.work:work-runtime-ktx:2.8.0-alpha01"
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:2.7"
     testImplementation 'junit:junit:4.13.2'
